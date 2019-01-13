@@ -5,13 +5,6 @@ var formidable = require('formidable');
 var FileDB = require("../db/files");
 
 
-
-Router.get('/', (req,res)=>{
-    res.send("ok!")
-
-});
-
-
 Router.get('/:file', (req,res)=>{
     fs.exists(__dirname + '/../uploads/'  + req.params.file, (exists)=>{
         if( !exists) return res.status(500).json({"message": "File Not Found!"});
@@ -50,7 +43,7 @@ Router.post('/upload', (req,res)=>{
     var Prepare = [];
     var promises = files.map((file)=>{
        return new Promise((resolve, reject)=>{
-           let myFile = new FileDB({
+            FileDB({
             fileName: file,
             file_url:  config.app.upload_url + file
             }).save((err, file)=>{
@@ -72,8 +65,6 @@ Router.post('/upload', (req,res)=>{
    form.parse(req);
  
  });
-
-
 
 })
  

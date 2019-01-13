@@ -1,0 +1,19 @@
+{
+  "name": "nodejs_images_upload_processing_server",
+  "version": "1.0.0",
+  "description": "nodejs images upload and processing server",
+  "main": "app.js",
+  "scripts": {},
+  "author": "Alaa Selim <alaa0selim@gmail.com>",
+  "license": "",
+  "homepage": "https://github.com/MyNameIsAlaa/nodejs_images_upload_processing_server.git",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:MyNameIsAlaa/nodejs_images_upload_processing_server.git"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "formidable": "^1.2.1"
+  }
+}

@@ -17,13 +17,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use('/api/files', Files_Route);
 
-http.get('/', (req, res)=>{
+app.get('/', (req, res)=>{
     res.send('welcome!')
 });
-http.get('', (req, res)=>{
+app.get('', (req, res)=>{
     res.send('?')
 });
 
-var listener = http.listen(process.env.PORT || 3000,()=>{
+var listener = http.listen(process.env.PORT,()=>{
     console.log('listening on port ' + listener.address().port);
   });

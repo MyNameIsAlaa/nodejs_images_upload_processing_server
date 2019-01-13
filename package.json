@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "preinstall": "npm install g pm2",
-    "start": "pm2-runtime app.js -i max --watch --ignore-watch=uploads"
+    "start": "pm2-runtime app.js -i max --ignore-watch=uploads"
   },
   "author": "Alaa Selim <alaa0selim@gmail.com>",
   "license": "",

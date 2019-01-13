@@ -30,10 +30,10 @@ Router.post('/upload', (req,res)=>{
   form.multiples = true;
   form.keepExtensions = true;
 
-  let UploadDir = path.join( __dirname + '/../uploads');
+  let UploadDir = path.join( __dirname + '../uploads');
 
   fs.exists(UploadDir, (exists)=>{
-     if( !exists) fs.mkdir(UploadDir);
+     if( !exists) fs.mkdir(UploadDir, err => console.log(err));
   
    form.uploadDir = UploadDir;
 

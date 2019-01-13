@@ -6,6 +6,11 @@ var FileDB = require("../db/files");
 
 
 
+Router.get('/', (req,res)=>{
+    res.send("ok!")
+
+});
+
 
 Router.get('/:file', (req,res)=>{
     fs.exists(__dirname + '/../uploads/'  + req.params.file, (exists)=>{
@@ -18,8 +23,8 @@ Router.get('/:file', (req,res)=>{
 
 
 Router.post('/upload', (req,res)=>{
+    
   files = [],
-console.log(req)
   form = new formidable.IncomingForm();
 
   form.multiples = true;
@@ -46,7 +51,6 @@ console.log(req)
     var promises = files.map((file)=>{
        return new Promise((resolve, reject)=>{
            let myFile = new FileDB({
-            Owner: OwnderID,
             fileName: file,
             file_url:  config.app.upload_url + file
             }).save((err, file)=>{

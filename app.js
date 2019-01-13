@@ -24,6 +24,6 @@ app.get('', (req, res)=>{
     res.send('?')
 });
 
-var listener = http.listen(process.env.PORT,()=>{
-    console.log('listening on port ' + listener.address().port);
-  });
+app.listen(process.env.PORT, ()=>{
+    console.log('listening on port:' + process.env.PORT)
+})

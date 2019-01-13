@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "nodejs images upload and processing server",
   "main": "app.js",
-  "scripts": {},
+  "scripts": {
+    "start": "node app.js"
+  },
   "author": "Alaa Selim <alaa0selim@gmail.com>",
   "license": "",
   "homepage": "https://github.com/MyNameIsAlaa/nodejs_images_upload_processing_server.git",

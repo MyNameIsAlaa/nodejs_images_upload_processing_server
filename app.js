@@ -1,3 +1,4 @@
+require('dotenv').config()
 var express = require("express");
 var app = express();
 var http = require('http').Server(app);
@@ -12,7 +13,7 @@ Mongoose.connect(config.mongo.URL, { useNewUrlParser: true },(error)=>{
     if(error) console.log(error);
   });
   
-app.use(cors);
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use('/api/files', Files_Route);
@@ -20,10 +21,8 @@ app.use('/api/files', Files_Route);
 app.get('/', (req, res)=>{
     res.send('welcome!')
 });
-app.get('', (req, res)=>{
-    res.send('?')
-});
 
-app.listen(process.env.PORT, ()=>{
-    console.log('listening on port:' + process.env.PORT)
+
+app.listen(config.port, ()=>{
+    console.log('listening on port:' + config.port)
 })

@@ -22,6 +22,9 @@ app.get('/', (req, res)=>{
     res.send('welcome!')
 });
 
+app.get('*', function(req, res){
+    res.send('what???', 404);
+});
 
 
 

@@ -66,7 +66,7 @@ Router.post('/upload', (req,res)=>{
  
  });
 
-})
+});
  
 
 

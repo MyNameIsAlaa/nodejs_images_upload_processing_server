@@ -7,7 +7,7 @@ var FileDB = require("../db/files");
 
 Router.get('/:file', (req,res)=>{
     fs.exists(__dirname + '/../uploads/'  + req.params.file, (exists)=>{
-        if( !exists) return res.status(500).json({"message": "File Not Found!"});
+        if( !exists) return res.status(500).json({"erroe": "File Not Found!"});
         res.status(200).sendFile(path.resolve(__dirname + '/../uploads/' + req.params.file));
     });
 });
@@ -36,7 +36,7 @@ Router.post('/upload', (req,res)=>{
    });
 
    form.on('error', function(err) {
-     return res.status(500).json({"message": err});
+     return res.status(500).json({"error": err});
    });
  
    form.on('end', function() {

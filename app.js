@@ -22,8 +22,8 @@ app.get('/', (req, res)=>{
     res.send('welcome!')
 });
 
-app.get('*', function(req, res){
-    res.send('what???', 404);
+app.use(function(req, res){
+    res.status(404).json({error: 'This endpoint is not found on the server'});
 });
 
 

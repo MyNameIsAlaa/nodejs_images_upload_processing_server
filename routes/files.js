@@ -88,6 +88,10 @@ Router.post('/resize', [
   var promises = files.map(file => {
     return new Promise((resolve, reject) => {
 
+      if (!fs.existsSync(path.join(UploadDir + '/' + file))) {
+        return reject('File: ' + file + ' Not Found!');
+      }
+
       if (fs.existsSync(path.join(UploadDir + '/' + perfix + file))) {
         return resolve(perfix + file); // file already resized before so no need to continue
       }
@@ -138,6 +142,10 @@ Router.post('/crop', [
   var promises = files.map(file => {
     return new Promise((resolve, reject) => {
 
+      if (!fs.existsSync(path.join(UploadDir + '/' + file))) {
+        return reject('File: ' + file + ' Not Found!');
+      }
+
       if (fs.existsSync(path.join(UploadDir + '/' + perfix + file))) {
         return resolve(perfix + file); // file already croped before so no need to continue
       }
@@ -181,6 +189,10 @@ Router.post('/scale', [
   var promises = files.map(file => {
     return new Promise((resolve, reject) => {
 
+      if (!fs.existsSync(path.join(UploadDir + '/' + file))) {
+        return reject('File: ' + file + ' Not Found!');
+      }
+
       if (fs.existsSync(path.join(UploadDir + '/' + perfix + file))) {
         return resolve(perfix + file); // file already croped before so no need to continue
       }
@@ -219,6 +231,10 @@ Router.post('/blur', [
 
   var promises = files.map(file => {
     return new Promise((resolve, reject) => {
+
+      if (!fs.existsSync(path.join(UploadDir + '/' + file))) {
+        return reject('File: ' + file + ' Not Found!');
+      }
 
       if (fs.existsSync(path.join(UploadDir + '/' + perfix + file))) {
         return resolve(perfix + file); // file already croped before so no need to continue
